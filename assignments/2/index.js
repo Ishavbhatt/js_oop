@@ -6,7 +6,11 @@
 
 function makePerson(name, age) {
 	// add code here
+  var obj = {};
+  obj.name = name;
+  obj.age = age;
 
+  return obj
 
 }
 
@@ -27,11 +31,13 @@ var vicky = makePerson('Vicky', 24);
 
 /*** CHALLENGE 1 of 3 ***/
 
-var personStore = {
+var personStore = ({
 	// add code here
+  great: function() {
+    return ("hello")
+  }
 
-
-};
+});
 
 // /********* Uncomment this line to test your work! *********/
 // personStore.greet(); // -> Logs 'hello'
