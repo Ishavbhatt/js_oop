@@ -77,4 +77,28 @@ function paidUser(name, score = 1, balance = 1) {
 paidUser.prototype.increaseBalance = function() { return this.balance ++;}
 Object.setPrototypeOf(paidUser.prototype, User.prototype);
 
+var ishav = new paidUser("ishav");
+
 ```
+
+
+
+<!-- class User {
+  constructor(name, score = 1) {
+    this.name = name;
+    this.score = score;
+  }
+  increaseScore = function() {return this.score ++;}
+  decreaseScore = function() {return this.score --;}
+}
+
+class paidUser extends User {
+  constructor(name, score = 1, balance = 1) {
+    super(name, score);
+    this.balance = balance;
+  }
+  increaseBalance = function() {return this.balance ++;}
+}
+
+var ishav = new paidUser("ishav");
+``` -->
