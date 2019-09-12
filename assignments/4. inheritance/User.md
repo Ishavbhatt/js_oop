@@ -58,3 +58,23 @@ ishav
 
 
 ```
+
+<!-- 2. Pseudoclassical Pattern -->
+```js
+function User(name, score = 1) {
+  this.name = name;
+  this.score = score;
+}
+
+User.prototype.increaseScore = function() { return this.score ++;}
+User.prototype.decreaseScore = function() { return this.score --;}
+
+function paidUser(name, score = 1, balance = 1) {
+  User.call(this, name, score);
+  this.balance = balance;
+}
+
+paidUser.prototype.increaseBalance = function() { return this.balance ++;}
+Object.setPrototypeOf(paidUser.prototype, User.prototype);
+
+```
