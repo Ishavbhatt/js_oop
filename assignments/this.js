@@ -1,6 +1,6 @@
-console.log(this.document === document); // Output
+console.log(this.document === document); // Output true
 
-console.log(this === window); //Output
+console.log(this === window); //Output true
 
 var myFunction = function() {
   console.log(this);
