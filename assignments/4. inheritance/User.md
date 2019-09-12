@@ -81,9 +81,9 @@ var ishav = new paidUser("ishav");
 
 ```
 
-
-
-<!-- class User {
+<!-- 3. classes -->
+```js
+class User {
   constructor(name, score = 1) {
     this.name = name;
     this.score = score;
@@ -101,4 +101,4 @@ class paidUser extends User {
 }
 
 var ishav = new paidUser("ishav");
-``` -->
+```
