@@ -60,7 +60,7 @@ sandra.greet(); //-> Logs 'hello'
 // add code here
 personStore.introduce = function() {console.log('Hi, my name is ' + this.name);}
 
-// sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
+sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
 
 
 
@@ -81,7 +81,7 @@ function PersonConstructor() {
 
 // /********* Uncomment this line to test your work! *********/
 var simon = new PersonConstructor;
-// simon.greet(); // -> Logs 'hello'
+simon.greet(); // -> Logs 'hello'
 
 
 
@@ -110,7 +110,7 @@ PersonConstructor.prototype.introduce = function() {
   console.log('Hi, my name is ' + this.name)
 }
 
-// mike.introduce(); // -> Logs 'Hi, my name is Mike'
+mike.introduce(); // -> Logs 'Hi, my name is Mike'
 
 
 /****************************************************************
@@ -161,46 +161,48 @@ thai.introduce(); //-> Logs 'Hello World, my name is Thai'
                       EXTENSION: SUBCLASSING
 ****************************************************************/
 
-var userFunctionStore = {
-  sayType: function() {
-    console.log("I am a " + this.type);
-  }
-}
+// var userFunctionStore = {
+//   sayType: function() {
+//     console.log("I am a " + this.type);
+//   }
+// }
 
-function userFactory(name, score) {
-  let user = Object.create(userFunctionStore);
-  user.type = "User";
-  user.name = name;
-  user.score = score;
-  return user;
-}
+// function userFactory(name, score) {
+//   let user = Object.create(userFunctionStore);
+//   user.type = "User";
+//   user.name = name;
+//   user.score = score;
+//   return user;
+// }
 
-var adminFunctionStore = Object.create(userFunctionStore);
+// var adminFunctionStore = Object.create(userFunctionStore);
 
-function adminFactory(name, score) {
-  // Put code here
-  let obj = new userFactory(name, score);
-  obj.type = 'Admin';
-  // obj.name = name;
-  // obj.score = score;
-  return obj;
-  // Put code here
-}
+// function adminFactory(name, score) {
+//   // Put code here
+//   let obj = new userFactory(name, score);
+//   obj.type = 'Admin';
+//   // obj.name = name;
+//   // obj.score = score;
+//   return obj;
+//   // Put code here
+// }
 
 
 
 
 /* Put code here for a method called sharePublicMessage*/
-adminFunctionStore.__proto__.sharePublicMessage = function() {
-  console.log('Welcome users!');
-}
-adminFromFactory.sharePublicMessage() 
-var userFromFactory = userFactory('dan', 3);
-userFromFactory.sayType();
-userFromFactory.sharePublicMessage()
 
-var adminFromFactory = adminFactory("Eva", 5);
 
-/********* Uncomment these lines to test your work! *********/
-adminFromFactory.sayType() // -> Logs "I am a Admin"
-adminFromFactory.sharePublicMessage() // -> Logs "Welcome users!"
+// adminFunctionStore.__proto__.sharePublicMessage = function() {
+//   console.log('Welcome users!');
+// }
+// adminFromFactory.sharePublicMessage() 
+// var userFromFactory = userFactory('dan', 3);
+// userFromFactory.sayType();
+// userFromFactory.sharePublicMessage()
+
+// var adminFromFactory = adminFactory("Eva", 5);
+
+// /********* Uncomment these lines to test your work! *********/
+// adminFromFactory.sayType() // -> Logs "I am a Admin"
+// adminFromFactory.sharePublicMessage() // -> Logs "Welcome users!"
