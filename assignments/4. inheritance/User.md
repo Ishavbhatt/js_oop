@@ -5,7 +5,7 @@ User
     -name
     -score
   -methods
-    -increaseScroe: returns score increased by 1
+    -increaseScore: returns score increased by 1
     -decreaseScore: returna score decreased by 1
 
 PaidUser
@@ -23,3 +23,82 @@ Using Inheritance convert the above into following patterns.
 1. Prototypal Pattern
 2. Pseudoclassical Pattern
 3. Classes
+
+<!-- 1. prototypal pattern -->
+
+```js
+var userMethod = {
+  increaseScore: function() { return this.score ++;},
+  decreaseScore: function() { return this.score --;}
+}
+
+function User(name, score = 1) {
+  var user = Object.create(userMethod);
+  user.name = name;
+  user.score = score;
+  return user;
+}
+
+var paidMethod = {
+  increaseBalance: function() { return this.balance ++;}
+}
+
+function paidUser(name, score = 1, balance = 1) {
+  var user = User(name, score);
+  Object.setPrototypeOf(user, userMethod);
+  Object.setPrototypeOf(userMethod, paidMethod);
+  user.balance = balance;
+  return user;
+}
+
+var ishav = paidUser("ishav");
+
+ishav
+// output name: "ishav", score: 1, balance: 1}
+
+
+```
+
+<!-- 2. Pseudoclassical Pattern -->
+```js
+function User(name, score = 1) {
+  this.name = name;
+  this.score = score;
+}
+
+User.prototype.increaseScore = function() { return this.score ++;}
+User.prototype.decreaseScore = function() { return this.score --;}
+
+function paidUser(name, score = 1, balance = 1) {
+  User.call(this, name, score);
+  this.balance = balance;
+}
+
+paidUser.prototype.increaseBalance = function() { return this.balance ++;}
+Object.setPrototypeOf(paidUser.prototype, User.prototype);
+
+var ishav = new paidUser("ishav");
+
+```
+
+<!-- 3. classes -->
+```js
+class User {
+  constructor(name, score = 1) {
+    this.name = name;
+    this.score = score;
+  }
+  increaseScore = function() {return this.score ++;}
+  decreaseScore = function() {return this.score --;}
+}
+
+class paidUser extends User {
+  constructor(name, score = 1, balance = 1) {
+    super(name, score);
+    this.balance = balance;
+  }
+  increaseBalance = function() {return this.balance ++;}
+}
+
+var ishav = new paidUser("ishav");
+```
